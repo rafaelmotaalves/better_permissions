@@ -1,11 +1,11 @@
-import { PenoOptions, PermissionFlag } from "./types.ts";
+import { PermissionOptions, PermissionFlag } from "./types.ts";
 import { validateOptions } from "./validate.ts";
 
 /**
  * Returns a string with the permission flags specified by the passed options
  * @param options 
  */
-export function generatePermisionsString(options: PenoOptions): string {
+export function generatePermisionsString(options: PermissionOptions): string {
   return generatePermisions(options).join(" ");
 }
 
@@ -14,7 +14,7 @@ export function generatePermisionsString(options: PenoOptions): string {
  * @param options 
  */
 export function generatePermisions(
-  options: PenoOptions,
+  options: PermissionOptions,
 ): Array<string> {
   const optionsValidation = validateOptions(options);
 

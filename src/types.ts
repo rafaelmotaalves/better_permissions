@@ -1,4 +1,4 @@
-export interface PenoOptions {
+export interface PermissionOptions {
   all?: boolean;
   env?: boolean;
   hrtime?: boolean;

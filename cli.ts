@@ -1,5 +1,5 @@
 import { path, parse, Args } from "./deps.ts";
-import { generatePermisions, PenoOptions } from "./mod.ts";
+import { generatePermisions, PermissionOptions } from "./mod.ts";
 import { fileExists } from "./src/util.ts";
 import { executeCommand } from "./src/cmd.ts";
 
@@ -113,7 +113,7 @@ function generateHelp() {
   return header + optionsString.join("\n");
 }
 
-async function loadOptions(configFile?: string): Promise<PenoOptions> {
+async function loadOptions(configFile?: string): Promise<PermissionOptions> {
   const configPath = path.join(
     Deno.cwd(),
     configFile || "permissions.config.ts",
@@ -141,7 +141,10 @@ async function loadOptions(configFile?: string): Promise<PenoOptions> {
   return options;
 }
 
-function buildCommand(options: PenoOptions, args: Array<string>): string[] {
+function buildCommand(
+  options: PermissionOptions,
+  args: Array<string>,
+): string[] {
   const permissions = generatePermisions(options);
 
   let command: string[];

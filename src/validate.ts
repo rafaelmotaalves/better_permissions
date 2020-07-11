@@ -1,4 +1,4 @@
-import { PenoOptions } from "./types.ts";
+import { PermissionOptions } from "./types.ts";
 
 interface ValidationResult {
   valid: boolean;
@@ -10,7 +10,7 @@ interface ValidationResult {
  * @param options
  */
 export function validateOptions(
-  { all, read, write, net, hrtime, run, env }: PenoOptions,
+  { all, read, write, net, hrtime, run, env }: PermissionOptions,
 ): ValidationResult {
   if (all && !isBoolean(all)) {
     return invalidParameterResult(generateInvalidFieldMessage("all"));

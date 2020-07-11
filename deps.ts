@@ -1,1 +1,3 @@
-export * from "https://deno.land/x/drake@v1.2.4/mod.ts";
+export * as path from "https://deno.land/std/path/mod.ts";
+
+export { parse } from "https://deno.land/std/flags/mod.ts";

@@ -11,7 +11,9 @@ export function generatePermisions(
   const optionsValidation = validateOptions(options);
 
   if (!optionsValidation.valid) {
-    throw new Error("Invalid options object! " + optionsValidation.message);
+    throw new Error(
+      "bpdeno: Invalid options object! " + optionsValidation.message,
+    );
   }
   const result: Array<string> = [];
 

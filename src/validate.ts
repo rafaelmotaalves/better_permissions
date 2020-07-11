@@ -5,6 +5,10 @@ interface ValidationResult {
   message?: String;
 }
 
+/**
+ * Validates an options object
+ * @param options
+ */
 export function validateOptions(
   { all, read, write, net, hrtime, run, env }: PenoOptions,
 ): ValidationResult {
@@ -47,10 +51,19 @@ export function validateOptions(
   };
 }
 
+/**
+ * Returns true if a value is a boolean
+ * @param value 
+ */
 function isBoolean(value: any): boolean {
   return Boolean(value) === value;
 }
 
+/**
+ * Validates an array field
+ * @param array 
+ * @param fieldname 
+ */
 function validateStringArray(
   array: Array<string>,
   fieldname: string,
@@ -64,10 +77,18 @@ function validateStringArray(
   return { valid: true };
 }
 
+/**
+ * Returns the index of a invalid string
+ * @param value 
+ */
 function findInvalidStringIndexOnArray(value: Array<any>): number {
   return value.findIndex((item: string) => !item || !item.length);
 }
 
+/**
+ * Mounts an invalid options validation result
+ * @param message 
+ */
 function invalidParameterResult(message: string): ValidationResult {
   return {
     valid: false,
@@ -75,10 +96,18 @@ function invalidParameterResult(message: string): ValidationResult {
   };
 }
 
+/**
+ * Mounts an invalid field message
+ * @param message 
+ */
 function generateInvalidFieldMessage(field: string): string {
   return `field "${field}" was passed an invalid value`;
 }
 
+/**
+ * Mounts an invalid array item message
+ * @param message 
+ */
 function generateInvalidArrayItemMessage(field: string, path: String) {
   return `"${field}" array has an invalid item: "${path}"`;
 }

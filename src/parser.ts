@@ -1,10 +1,18 @@
 import { PenoOptions, PermissionFlag } from "./types.ts";
 import { validateOptions } from "./validate.ts";
 
+/**
+ * Returns a string with the permission flags specified by the passed options
+ * @param options 
+ */
 export function generatePermisionsString(options: PenoOptions): string {
   return generatePermisions(options).join(" ");
 }
 
+/**
+ * Returns a string with the permission flags specified by the passed options
+ * @param options 
+ */
 export function generatePermisions(
   options: PenoOptions,
 ): Array<string> {
@@ -62,21 +70,35 @@ export function generatePermisions(
   return result;
 }
 
+/**
+ * Used to mount the permission string for permissions that can specify an array of files
+ * @param flag the permissions flag
+ * @param array the value array
+ * @param stringifyArrayFn A function that transforms an array of string into a single string
+ */
 function generateArrayPermissionFlag(
   flag: PermissionFlag,
   array: Array<string> | boolean,
   stringifyArrayFn: (array: Array<string>) => string,
 ): string {
   if (Array.isArray(array)) {
-    return flag + stringifyArrayFn(array);
+    return flag + "=" + stringifyArrayFn(array);
   }
   return flag;
 }
 
+/**
+ * Returns a list of values separated by a " " (space)
+ * @param array 
+ */
 function generatePathsString(array: Array<string>): string {
-  return "=" + array.join(" ");
+  return array.join(" ");
 }
 
+/**
+ * Returns a list of values separated by a "," (comma)
+ * @param array 
+ */
 function generateUrlsString(array: Array<string>): string {
-  return "=" + array.join(",");
+  return array.join(",");
 }

@@ -1,3 +1,7 @@
+/**
+ * Returns true if the passed file exists
+ * @param filename 
+ */
 export async function fileExists(filename: string): Promise<boolean> {
   try {
     await Deno.stat(filename);

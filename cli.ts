@@ -2,6 +2,7 @@ import { path, parse, Args } from "./deps.ts";
 import { generatePermisions, PermissionOptions } from "./mod.ts";
 import { fileExists } from "./src/util.ts";
 import { executeCommand } from "./src/cmd.ts";
+import { logError } from "./src/logger.ts";
 
 const CLI_VERSION = "v0.0.1";
 const CLI_OPTIONS = [
@@ -20,16 +21,25 @@ const CLI_OPTIONS = [
 ];
 
 async function cli(args: Array<string>): Promise<void> {
-  const cliOptions = parseCliOptions(args);
-  if (cliOptions.help) {
-    await printHelp();
-  } else {
-    const configFilePath = cliOptions.permissionsConfig;
-    let permissionOptions = await loadOptions(configFilePath);
+  let command: string[] | null = null;
 
-    const denoArgs = removeCliOptionsFromArgs(cliOptions.arr);
-    let command: string[] = buildCommand(permissionOptions, denoArgs);
-    await executeCommand(command);
+  try {
+    const cliOptions = parseCliOptions(args);
+    if (cliOptions.help) {
+      await printHelp();
+    } else {
+      const configFilePath = cliOptions.permissionsConfig;
+      let permissionOptions = await loadOptions(configFilePath);
+
+      const denoArgs = removeCliOptionsFromArgs(cliOptions.arr);
+      command = buildCommand(permissionOptions, denoArgs);
+    }
+  } catch (err) {
+    logError(err);
+  }
+
+  if (command) {
+    executeCommand(command);
   }
 }
 
@@ -124,7 +134,7 @@ async function loadOptions(configFile?: string): Promise<PermissionOptions> {
   const configFileExists = await fileExists(configPath);
   if (!configFileExists) {
     throw new Error(
-      `bpdeno: There was an error loading config file ${configFile}. it doens't exist`,
+      `There was an error loading permission options file ${configFile}. it doesn't exist`,
     );
   }
 
@@ -134,7 +144,7 @@ async function loadOptions(configFile?: string): Promise<PermissionOptions> {
     options = configFile.default;
   } catch (err) {
     throw new Error(
-      `bpdeno: There was an unexpected error loading config file: \n${err.message}`,
+      `There was an unexpected error loading config file: \n${err.message}`,
     );
   }
 

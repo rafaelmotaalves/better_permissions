@@ -20,7 +20,7 @@ export function generatePermisions(
 
   if (!optionsValidation.valid) {
     throw new Error(
-      "bpdeno: Invalid options object! " + optionsValidation.message,
+      "Invalid options object! " + optionsValidation.message,
     );
   }
   const result: Array<string> = [];

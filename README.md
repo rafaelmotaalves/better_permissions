@@ -29,7 +29,7 @@ Another way the Better Permissions API works nicely is together with [Drake](htt
 Example drakefile using better-permisions:
 
 ```typescript
-import { desc, run, task } from "https://deno.land/x/drake@v1.2.4/mod.ts";
+import { desc, run, task, sh } from "https://deno.land/x/drake@v1.2.4/mod.ts";
 import { 
   generatePermisionsString, PermissionOptions 
 } from "https://github.com/rafaelmotaalves/better-permissions/blob/master/mod.ts";
@@ -45,7 +45,7 @@ const devOptions: PermissionOptions = {
 
 desc("Execute application with development permissions");
 task("run-dev", [], function() {
-  console.log(`deno run ${generatePermisionsString(devOptions)} app.ts`);
+  sh(`deno run ${generatePermisionsString(devOptions)} app.ts`);
 });
 
 run()

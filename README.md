@@ -62,7 +62,9 @@ and the we can execute a scripts using the following parameters:
 `
   bpdeno run -p permissions.config.ts app.ts
 `
+
 being the permissions.config.js a Typescript file that follows the format: 
+
 ```typescript
 import { PermissionOptions } from "https://github.com/rafaelmotaalves/better-permissions/blob/master/mod.ts";
 

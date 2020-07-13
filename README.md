@@ -1,6 +1,5 @@
 # Better Permissions
-[Better Permissions](https://github.com/rafaelmotaalves/better-permissions) provides a nicer way for configuring permissions for your [Deno]
-(https://deno.land/) scripts using Typescript files!
+[Better Permissions](https://github.com/rafaelmotaalves/better-permissions) provides a nicer way for configuring permissions for your [Deno](https://deno.land/) scripts using Typescript files!
 
 ## Usage
 [Better Permissions](https://github.com/rafaelmotaalves/better-permissions) provides an API that permits generating [Deno](https://deno.land/) scrips permissions flags, from a defined configuration object:

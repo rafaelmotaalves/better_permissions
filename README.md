@@ -8,7 +8,7 @@
 import { 
   generatePermisions, 
   PermissionOptions 
-  } from "https://github.com/rafaelmotaalves/better-permissions/blob/master/mod.ts";
+  } from "https://deno.land/x/better_permissions@v0.0.1/mod.ts";
 
 const options: PermissionOptions = {
     env: true,
@@ -31,7 +31,7 @@ Example drakefile using better-permisions:
 import { desc, run, task, sh } from "https://deno.land/x/drake@v1.2.4/mod.ts";
 import { 
   generatePermisionsString, PermissionOptions 
-} from "https://github.com/rafaelmotaalves/better-permissions/blob/master/mod.ts";
+} from "https://deno.land/x/better_permissions@v0.0.1/mod.ts";
 
 const devOptions: PermissionOptions = {
     env: true,
@@ -53,7 +53,7 @@ run()
  also provide a Wrapper CLI for Deno that can installed executing the command:
 
 `
-  deno install -A -n bpdeno https://github.com/rafaelmotaalves/better-permissions/blob/master/cli.ts
+  deno install -A -n bpdeno https://deno.land/x/better_permissions@v0.0.1/cli.ts
 `
 
 and the we can execute a scripts using the following parameters:
@@ -65,7 +65,7 @@ and the we can execute a scripts using the following parameters:
 being the permissions.config.js a Typescript file that follows the format: 
 
 ```typescript
-import { PermissionOptions } from "https://github.com/rafaelmotaalves/better-permissions/blob/master/mod.ts";
+import { PermissionOptions } from "https://deno.land/x/better_permissions@v0.0.1/mod.ts";
 
 const options: PermissionOptions ={
     env: true,

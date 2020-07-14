@@ -1,4 +1,7 @@
 # Better Permissions
+![License](https://img.shields.io/github/license/rafaelmotaalves/better_permissions.svg)
+![Test](https://github.com/rafaelmotaalves/better_permissions/workflows/Test/badge.svg?branch=master&event=push)
+
 [Better Permissions](https://github.com/rafaelmotaalves/better-permissions) provides a nicer way for configuring permissions for your [Deno](https://deno.land/) scripts using Typescript files!
 
 ## Usage

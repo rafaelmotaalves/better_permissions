@@ -22,4 +22,4 @@ jobs:
       - name: Build Module
         run: deno run --reload mod.ts
       - name: Test Module
-        run: deno test --allow-none
+        run: deno test

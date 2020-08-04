@@ -53,13 +53,13 @@ task("run-dev", [], function() {
 run()
 ```
  
- also provide a Wrapper CLI for Deno that can installed executing the command:
+ Better permissino also provides a Wrapper CLI for Deno that can installed executing the command:
 
 `
   deno install -A -n bpdeno https://deno.land/x/better_permissions@v0.0.1/cli.ts
 `
 
-and the we can execute a scripts using the following parameters:
+and then we can execute a scripts using the following parameters:
 
 `
   bpdeno run -p permissions.config.ts app.ts
